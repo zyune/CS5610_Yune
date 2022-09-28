@@ -3,7 +3,7 @@
 ## A minimal portfolio template for Developers!
 
 <h2 align="center">
-  <img src="https://github.com/cobidev/gatsby-simplefolio/blob/master/examples/example.gif" alt="Simplefolio" width="600px" />
+  <img src="https://github.com/cobidev/gatsby-simplefolio/blob/master/examples/self-intro.png" alt="Simplefolio" width="600px" />
   <br>
 </h2>
 
@@ -17,15 +17,11 @@
 ⚡️ Optimized with Parcel\
 ⚡️ Well organized documentation
 
-To view the demo: **[click here](https://the-simplefolio.netlify.app/)**
-
 ---
 
-## Why do you need a portfolio? ☝️
-
-- Professional way to showcase your work
-- Increases your visibility and online presence
-- Shows you’re more than just a resume
+![output](examples/Creed.png)
+![output](examples/project1.png)
+![output](examples/project2.png)
 
 ## Getting Started 🚀
 
@@ -55,16 +51,20 @@ From your command line, first clone Simplefolio:
 
 ```bash
 # Clone the repository
-$ git clone https://github.com/cobidev/simplefolio
-
+$ git clone https://github.com/zyune/CS5610_Yune.git
 # Move into the repository
-$ cd simplefolio
+$ cd CS5610_Yune
 
 # Remove the current origin repository
 $ git remote remove origin
 ```
 
 After that, you can install the dependencies either using NPM or Yarn.
+And please use node version 16
+
+```
+$ nvm use 16
+```
 
 Using NPM: Simply run the below commands.
 
@@ -97,7 +97,7 @@ $ sudo npm install --unsafe-perm=true --allow-root
 Once your server has started, go to this url `http://localhost:1234/` to see the portfolio locally. It should look like the below screenshot.
 
 <h2 align="center">
-  <img src="https://github.com/cobidev/gatsby-simplefolio/blob/master/examples/example.png" alt="Simplefolio" width="100%">
+  <img src="https://github.com/cobidev/gatsby-simplefolio/blob/master/examples/self-intro.png" alt="Simplefolio" width="100%">
 </h2>
 
 ---
