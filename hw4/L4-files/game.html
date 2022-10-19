@@ -33,6 +33,7 @@
     var lives = 3;
     var level=2
 
+    
     var bricks = [];
     for(var c=0; c<brickColumnCount; c++) {
         bricks[c] = [];
@@ -77,22 +78,46 @@
                         b.status = 0;
                         score++;
                         if(score == brickRowCount*brickColumnCount) {
-                            alert("YOU WIN, CONGRATS!");
+                            alert("YOU WIN, CONGRATS!，level1");
                             addLevel();
-                            console.log(document)
-                            if(level==2){
-                                document.location.reload()
-                                addLevel();
-                                changePaddlelenth();
-                                draw();
+                            console.log(level)
+                            //if(level==2){
+                            //    document.location.reload()
+                            //    addLevel();
+                            //    changePaddlelenth();
+                            //    draw();
+                            //}
+                            for(var c=0; c<brickColumnCount; c++) {
+                                bricks[c] = [];
+                                for(var r=0; r<brickRowCount; r++) {
+                                    bricks[c][r] = { x: 0, y: 0, status: 1 };
+                                }
                             }
+                            draw();
+                        }
+                        if(score == brickRowCount*brickColumnCount*2) {
+                            alert("YOU WIN, CONGRATS!，level2");
+                            addLevel();
+                            for(var c=0; c<brickColumnCount; c++) {
+                                bricks[c] = [];
+                                for(var r=0; r<brickRowCount; r++) {
+                                    bricks[c][r] = { x: 0, y: 0, status: 1 };
+                                }
+                            }
+                            draw();
+
+                        }
+                        if(score == brickRowCount*brickColumnCount*3) {
+                            alert("YOU WIN, CONGRATS!，level3, all level pass, your highest score is 45");
+                        }
+
                             
                             
                         }
                     }
                 }
             }
-        }
+        
     }
     function addLevel(){
         level=level+1
@@ -124,7 +149,10 @@
                     bricks[c][r].y = brickY;
                     ctx.beginPath();
                     ctx.rect(brickX, brickY, brickWidth, brickHeight);
-                    ctx.fillStyle = "#944b13";
+                    if (level===1){ctx.fillStyle = "#944b13";}
+                    if (level===2){ctx.fillStyle = "#f2db41";}
+                    if (level===3){ctx.fillStyle = "#de1b31";}
+                    
                     ctx.fill();
                     ctx.closePath();
                 }
@@ -147,7 +175,13 @@
         drawBricks();
         drawBall();
         
-        
+        if (level==2){
+
+            paddleWidth=300
+        }
+        if (level==3){
+            paddleWidth=200
+        }
         drawPaddle();
         console.log(paddleWidth)
         drawScore();
@@ -167,7 +201,7 @@
             else {
                 lives--;
                 if(!lives) {
-                    alert("GAME OVER");
+                    alert("GAME OVER"+"your score is "+score);
                     document.location.reload();
                 }
                 else {  
