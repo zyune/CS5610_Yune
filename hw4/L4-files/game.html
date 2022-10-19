@@ -18,7 +18,7 @@
     var dx = 2;
     var dy = -2;
     var paddleHeight = 10;
-    var paddleWidth = 75;
+    var paddleWidth = 475;
     var paddleX = (canvas.width-paddleWidth)/2;
     var rightPressed = false;
     var leftPressed = false;
@@ -31,6 +31,7 @@
     var brickOffsetLeft = 30;
     var score = 0;
     var lives = 3;
+    var level=2
 
     var bricks = [];
     for(var c=0; c<brickColumnCount; c++) {
@@ -77,18 +78,32 @@
                         score++;
                         if(score == brickRowCount*brickColumnCount) {
                             alert("YOU WIN, CONGRATS!");
-                            document.location.reload();
+                            addLevel();
+                            console.log(document)
+                            if(level==2){
+                                document.location.replace(paddleWidth=200);
+                                addLevel();
+                                changePaddlelenth();
+                                draw();
+                            }
+                            
+                            
                         }
                     }
                 }
             }
         }
     }
-
+    function addLevel(){
+        level=level+1
+    }
+    function changePaddlelenth(){
+        paddleWidth=paddleWidth/2
+    }
     function drawBall() {
         ctx.beginPath();
         ctx.arc(x, y, ballRadius, 0, Math.PI*2);
-        ctx.fillStyle = "#0095DD";
+        ctx.fillStyle = "#dd003f";
         ctx.fill();
         ctx.closePath();
     }
@@ -109,7 +124,7 @@
                     bricks[c][r].y = brickY;
                     ctx.beginPath();
                     ctx.rect(brickX, brickY, brickWidth, brickHeight);
-                    ctx.fillStyle = "#0095DD";
+                    ctx.fillStyle = "#944b13";
                     ctx.fill();
                     ctx.closePath();
                 }
@@ -131,7 +146,10 @@
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         drawBricks();
         drawBall();
+        
+        
         drawPaddle();
+        console.log(paddleWidth)
         drawScore();
         drawLives();
         collisionDetection();
@@ -152,7 +170,7 @@
                     alert("GAME OVER");
                     document.location.reload();
                 }
-                else {
+                else {  
                     x = canvas.width/2;
                     y = canvas.height-30;
                     dx = 2;
@@ -173,7 +191,16 @@
         y += dy;
         requestAnimationFrame(draw);
     }
-
+    level=1
+    if (level===2){
+        changePaddlelenth();
+        draw();
+    }
+    if (level===3){
+        changePaddlelenth();
+        draw();
+    } 
+    
     draw();
 </script>
 
