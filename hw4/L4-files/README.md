@@ -1,5 +1,6 @@
-There are three level of game
-WHat I did for this Project
+## There are three level of game
+
+## I did five change to this project, the code is in index.html
 
 # Randomize the colors of the bricks
 
