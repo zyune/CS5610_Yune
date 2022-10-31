@@ -1,3 +1,5 @@
+# This is a react project demo of a dog fetch api
+
 ### Installation
 
 - `cd` into the folder
